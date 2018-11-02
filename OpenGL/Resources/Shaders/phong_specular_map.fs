@@ -53,7 +53,5 @@ void main()
 
    
 
-    vec4 textureColor = mix(textureColor0, textureColor1, textureColor1.a);
-
-    color =  textureColor;
+    color =  textureColor0 + textureColor1;
 }
