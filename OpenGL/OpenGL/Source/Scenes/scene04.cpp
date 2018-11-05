@@ -2,8 +2,8 @@
 #include "objects/camera.h"
 #include "objects/sphere.h"
 
-//#define MULTI_TEXTURE
-#define SPECULAR_MAP
+#define MULTI_TEXTURE
+//#define SPECULAR_MAP
 
 static float cube_vertices[] = {
 	// Front
@@ -139,8 +139,8 @@ void Scene04::Update()
 	glm::mat4 mxMVP = camera->projection * camera->transform.matrix * model->transform.matrix;
 	model->m_shader.SetUniform("model_view_projection_matrix", mxMVP);
 
-	m_uvOffset.y = m_uvOffset.y + (1.0f * dt);
-	m_uvOffset.x = m_uvOffset.x + (2.0f * dt);
+	m_uvOffset.y = m_uvOffset.y + (0.1f * dt);
+	m_uvOffset.x = m_uvOffset.x + (0.1f * dt);
 
 	model->m_shader.SetUniform("uv_offset", m_uvOffset);
 }

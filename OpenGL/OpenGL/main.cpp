@@ -3,6 +3,7 @@
 #include "scenes/scene02.h"
 #include "scenes/scene03.h"
 #include "scenes/scene04.h"
+#include "Scenes/scene05.h"
 
 int main(int argc, char** argv)
 {
@@ -16,7 +17,7 @@ int main(int argc, char** argv)
 	engine.Initialize();
 	engine.Get<FileSystem>()->SetPathname("resources\\");
 
-	Scene* scene = new Scene04(&engine);
+	Scene* scene = new Scene05(&engine);
 	scene->Initialize();
 
 	while (!engine.ForceQuit())

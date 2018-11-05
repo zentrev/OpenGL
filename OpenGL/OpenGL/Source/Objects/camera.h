@@ -16,5 +16,5 @@ public:
 
 public:
 	glm::mat4 projection;
-	float m_rate = 60.0f;
+	float m_rate = 25.0f;
 };

@@ -73,6 +73,9 @@
     <ClCompile Include="Source\Objects\plane.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Scenes\scene05.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -178,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="Source\Objects\plane.h">
       <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scenes\scene05.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

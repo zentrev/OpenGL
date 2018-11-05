@@ -51,7 +51,7 @@ void main()
 	vec4 textureColor0 = texture(textureSample0, fragment_uv) * vec4(ambient + diffuse, 1.0);
     vec4 textureColor1 = texture(textureSample1, fragment_uv) * vec4(specular, 1.0);
 
-   
+ 
 
     color =  textureColor0 + textureColor1;
 }
