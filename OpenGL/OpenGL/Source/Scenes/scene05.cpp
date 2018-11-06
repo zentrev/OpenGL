@@ -100,11 +100,10 @@ bool Scene05::Initialize()
 
 	model->m_shader.SetUniform("uv_scale", glm::vec2(1.0f, 1.0f));
 
-	model->m_shader.SetUniform("fog.distance_min", 20.0f);
+	model->m_shader.SetUniform("fog.distance_min", 25.0f);
 	model->m_shader.SetUniform("fog.distance_max", 100.0f);
-	model->m_shader.SetUniform("fog.color", glm::vec3(0.5f));
+	model->m_shader.SetUniform("fog.color", glm::vec3(0.0f, 0.5f, 0.5f));
 
-	
 	return true;
 }
 
