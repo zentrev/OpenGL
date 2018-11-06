@@ -2,8 +2,9 @@
 
 #include "core/object.h"
 #include "core/engine.h"
+#include "renderable.h"
 
-class Model : public Object
+class Model : public Renderable
 {
 public:
 	Model(Scene* scene, const std::string& name = "");

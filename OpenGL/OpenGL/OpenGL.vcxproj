@@ -185,6 +185,7 @@
     <ClInclude Include="Source\Objects\model.h" />
     <ClInclude Include="Source\Objects\plane.h" />
     <ClInclude Include="Source\Objects\point_light.h" />
+    <ClInclude Include="Source\Objects\renderable.h" />
     <ClInclude Include="Source\Objects\sphere.h" />
     <ClInclude Include="Source\Objects\torus.h" />
     <ClInclude Include="Source\Renderer\material.h" />
@@ -201,6 +202,8 @@
   <ItemGroup>
     <None Include="..\Resources\Shaders\basic.fs" />
     <None Include="..\Resources\Shaders\basic.vs" />
+    <None Include="..\Resources\Shaders\basic_color.fs" />
+    <None Include="..\Resources\Shaders\basic_color.vs" />
     <None Include="..\Resources\Shaders\basic_uv.fs" />
     <None Include="..\Resources\Shaders\basic_uv.vs" />
     <None Include="..\Resources\Shaders\gouraud.fs" />
@@ -213,6 +216,8 @@
     <None Include="..\Resources\Shaders\phong_multi_texture.fs" />
     <None Include="..\Resources\Shaders\phong_specular_map.fs" />
     <None Include="..\Resources\Shaders\phong_uv.vs" />
+    <None Include="..\Resources\Shaders\_phong.fs" />
+    <None Include="..\Resources\Shaders\_phong.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

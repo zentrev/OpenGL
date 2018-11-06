@@ -185,6 +185,9 @@
     <ClInclude Include="Source\Scenes\scene05.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Objects\renderable.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Shaders\basic.fs">
@@ -221,6 +224,24 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="..\Resources\Shaders\phong_uv.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\_phong.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\_phong.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\basic_color.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\basic_color.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\phong_fog.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\phong_fog.fs">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

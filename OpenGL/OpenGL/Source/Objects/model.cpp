@@ -1,7 +1,7 @@
 #include "model.h"
 #include "core/scene.h"
 
-Model::Model(Scene* scene, const std::string& name) : Object(scene, name)
+Model::Model(Scene* scene, const std::string& name) : Renderable(scene, name)
 {
 	//
 }
