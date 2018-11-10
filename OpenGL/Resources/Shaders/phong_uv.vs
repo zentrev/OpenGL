@@ -11,8 +11,8 @@ out vec2 fragment_uv;
 uniform mat4		model_view_matrix;
 uniform mat4		model_view_projection_matrix;
 uniform mat3		normal_matrix;
-uniform vec2		uv_offset;
-uniform vec2		uv_scale;
+uniform vec2		uv_offset = vec2(0.0, 0.0);
+uniform vec2		uv_scale = vec2(1.0, 1.0);
 
 void main()
 {

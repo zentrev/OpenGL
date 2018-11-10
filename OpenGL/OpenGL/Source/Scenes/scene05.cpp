@@ -66,7 +66,8 @@ bool Scene05::Initialize()
 	//Model 1
 	Model* model = this->CreateObject<Sphere>();
 	((Sphere*)(model))->Initialize(1.0f, 20, 20);
-	model->transform.scale = glm::vec3(5.0f);
+	model->transform.scale = glm::vec3(1.0f);
+	model->transform.translation = glm::vec3(10.0f, 0.0f, 0.0f);
 
 	// shader
 	model->m_shader.CompileShader(m_engine->Get<FileSystem>()->GetPathname() + "shaders\\phong_fog.vs", GL_VERTEX_SHADER);
@@ -110,9 +111,8 @@ bool Scene05::Initialize()
 
 	//Model 2
 	model = this->CreateObject<Cube>();
-	((Cube*)(model))->Initialize(10.0f);
-	model->transform.scale = glm::vec3(15.0f);
-	model->transform.translation = glm::vec3(100.0f, 0.0f, 0.0f);
+	((Cube*)(model))->Initialize(2.0f);
+	model->transform.scale = glm::vec3(1.0f);
 
 	// shader
 	model->m_shader.CompileShader(m_engine->Get<FileSystem>()->GetPathname() + "shaders\\phong_fog.vs", GL_VERTEX_SHADER);
@@ -166,47 +166,40 @@ void Scene05::Update()
 {
 	float dt = m_engine->Get<Timer>()->DeltaTime();
 
-	Sphere* model = this->GetObject<Sphere>();
 
-	if (m_engine->Get<Input>()->GetActionButton("left") == Input::eButtonState::HELD)  model->transform.translation.x -= 10.0f * dt;
-	if (m_engine->Get<Input>()->GetActionButton("right") == Input::eButtonState::HELD) model->transform.translation.x += 10.0f * dt;
-	model->transform.rotation = model->transform.rotation * glm::angleAxis(glm::radians(45.0f * dt), glm::vec3(0.0f, 1.0f, 0.0f));
 	
-	model->transform.Update();
+
+	std::vector<Object*> objects = this->GetObjects<Object>();
+	for (Object* object : objects)
+	{
+		object->Update();
+	}
 
 	Camera* camera = this->GetObject<Camera>();
-	camera->Update();
 
-	PointLight* light = this->GetObjectA<PointLight>();
-	light->Update();
+	//camera->Update();
+
+
+	PointLight* light = this->GetObject<PointLight>();
+	glm::vec4 lightPosition = light->GetPositionFromView(camera->transform.matrix);
+	//light->Update();
 
 	std::vector<Model*> models = this->GetObjects<Model>();
 	for (Model* model : models)
 	{
-		model->m_shader.Use();
 
 		// update light
-		glm::vec4 lightPosition = light->GetPositionFromView(camera->transform.matrix);
+
+		model->m_shader.Use();
 		model->m_shader.SetUniform("light.position", lightPosition);
+		model->transform.rotation = model->transform.rotation * glm::angleAxis(glm::radians(45.0f * dt), glm::vec3(0.0f, 1.0f, 0.0f));
+		model->transform.Update();
 
-		// update normals
-		glm::mat3 mxNormal = glm::mat3(camera->transform.matrix * model->transform.matrix);
-		mxNormal = glm::inverse(mxNormal);
-		mxNormal = glm::transpose(mxNormal);
-		model->m_shader.SetUniform("normal_matrix", mxNormal);
 
-		// update model view
-		glm::mat4 mxMV = camera->transform.matrix * model->transform.matrix;
-		model->m_shader.SetUniform("model_view_matrix", mxMV);
-
-		// update mvp
-		glm::mat4 mxMVP = camera->projection * camera->transform.matrix * model->transform.matrix;
-		model->m_shader.SetUniform("model_view_projection_matrix", mxMVP);
-
-		m_uvOffset.y = m_uvOffset.y + (0.1f * dt);
+		/*m_uvOffset.y = m_uvOffset.y + (0.1f * dt);
 		m_uvOffset.x = m_uvOffset.x + (0.1f * dt);
 
-		model->m_shader.SetUniform("uv_offset", m_uvOffset);
+		model->m_shader.SetUniform("uv_offset", m_uvOffset);*/
 	}
 
 }

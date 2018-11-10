@@ -168,6 +168,7 @@
     <ClCompile Include="Source\Scenes\scene03.cpp" />
     <ClCompile Include="Source\Scenes\scene04.cpp" />
     <ClCompile Include="Source\Scenes\scene05.cpp" />
+    <ClCompile Include="Source\Scenes\scene06.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\engine.h" />
@@ -198,6 +199,7 @@
     <ClInclude Include="Source\Scenes\scene03.h" />
     <ClInclude Include="Source\Scenes\scene04.h" />
     <ClInclude Include="Source\Scenes\scene05.h" />
+    <ClInclude Include="Source\Scenes\scene06.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Shaders\basic.fs" />
