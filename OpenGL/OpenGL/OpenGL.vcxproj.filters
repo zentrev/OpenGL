@@ -79,6 +79,9 @@
     <ClCompile Include="Source\Scenes\scene06.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Scenes\scene07.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -192,6 +195,9 @@
       <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="Source\Scenes\scene06.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scenes\scene07.h">
       <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
