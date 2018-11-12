@@ -135,11 +135,7 @@ bool Scene06::Initialize()
 	model->m_shader.SetUniform("light.diffuse", light->diffuse);
 	model->m_shader.SetUniform("light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
 
-	model->m_shader.SetUniform("uv_scale", glm::vec2(1.0f, 1.0f));
-
-	model->m_shader.SetUniform("fog.distance_min", 25.0f);
-	model->m_shader.SetUniform("fog.distance_max", 100.0f);
-	model->m_shader.SetUniform("fog.color", glm::vec3(1.0f, 1.0f, 1.0f));
+	//model->m_shader.SetUniform("uv_scale", glm::vec2(1.0f, 1.0f));
 
 	return true;
 }
