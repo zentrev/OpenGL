@@ -80,8 +80,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\Middleware\glad\include;$(SolutionDir)..\Middleware\SDL2-2.0.8\include;$(SolutionDir)..\Middleware\glm;$(SolutionDir)..\Middleware;$(ProjectDir)\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Middleware\glad\include;$(SolutionDir)..\Middleware\SDL2-2.0.8\include;$(SolutionDir)..\Middleware\glm;$(SolutionDir)..\Middleware;$(ProjectDir)\Source;$(SolutionDir)..\Middleware\imgui-master;$(SolutionDir)..\Middleware\imgui-master\examples;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>IMGUI_IMPL_OPENGL_LOADER_GLAD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)..\Middleware\SDL2-2.0.8\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -96,8 +97,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\Middleware\glad\include;$(SolutionDir)..\Middleware\SDL2-2.0.8\include;$(SolutionDir)..\Middleware\glm;$(SolutionDir)..\Middleware;$(ProjectDir)\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Middleware\glad\include;$(SolutionDir)..\Middleware\SDL2-2.0.8\include;$(SolutionDir)..\Middleware\glm;$(SolutionDir)..\Middleware;$(ProjectDir)\Source;$(SolutionDir)..\Middleware\imgui-master;$(SolutionDir)..\Middleware\imgui-master\examples;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>IMGUI_IMPL_OPENGL_LOADER_GLAD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)..\Middleware\SDL2-2.0.8\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -144,6 +146,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Middleware\glad\src\glad.c" />
+    <ClCompile Include="..\..\Middleware\imgui-master\examples\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\..\Middleware\imgui-master\examples\imgui_impl_sdl.cpp" />
+    <ClCompile Include="..\..\Middleware\imgui-master\imgui.cpp" />
+    <ClCompile Include="..\..\Middleware\imgui-master\imgui_draw.cpp" />
+    <ClCompile Include="..\..\Middleware\imgui-master\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Source\Core\engine.cpp" />
     <ClCompile Include="Source\Core\file_system.cpp" />
@@ -157,10 +164,12 @@
     <ClCompile Include="Source\Objects\plane.cpp" />
     <ClCompile Include="Source\Objects\point_light.cpp" />
     <ClCompile Include="Source\Objects\sphere.cpp" />
+    <ClCompile Include="Source\Objects\spot_light.cpp" />
     <ClCompile Include="Source\Objects\torus.cpp" />
     <ClCompile Include="Source\Renderer\material.cpp" />
     <ClCompile Include="Source\Renderer\renderer.cpp" />
     <ClCompile Include="Source\Renderer\shader.cpp" />
+    <ClCompile Include="Source\Renderer\ui.cpp" />
     <ClCompile Include="Source\Renderer\vertex_array.cpp" />
     <ClCompile Include="Source\Renderer\vertex_arrays.cpp" />
     <ClCompile Include="Source\Scenes\scene01.cpp" />
@@ -189,10 +198,12 @@
     <ClInclude Include="Source\Objects\point_light.h" />
     <ClInclude Include="Source\Objects\renderable.h" />
     <ClInclude Include="Source\Objects\sphere.h" />
+    <ClInclude Include="Source\Objects\spot_light.h" />
     <ClInclude Include="Source\Objects\torus.h" />
     <ClInclude Include="Source\Renderer\material.h" />
     <ClInclude Include="Source\Renderer\renderer.h" />
     <ClInclude Include="Source\Renderer\shader.h" />
+    <ClInclude Include="Source\Renderer\ui.h" />
     <ClInclude Include="Source\Renderer\vertex_array.h" />
     <ClInclude Include="Source\Renderer\vertex_arrays.h" />
     <ClInclude Include="Source\Scenes\scene01.h" />
@@ -219,6 +230,7 @@
     <None Include="..\Resources\Shaders\phong_fog.vs" />
     <None Include="..\Resources\Shaders\phong_multi_texture.fs" />
     <None Include="..\Resources\Shaders\phong_specular_map.fs" />
+    <None Include="..\Resources\Shaders\phong_spotlight.fs" />
     <None Include="..\Resources\Shaders\phong_uv.vs" />
     <None Include="..\Resources\Shaders\_phong.fs" />
     <None Include="..\Resources\Shaders\_phong.vs" />

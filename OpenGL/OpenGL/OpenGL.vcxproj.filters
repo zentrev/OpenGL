@@ -82,6 +82,27 @@
     <ClCompile Include="Source\Scenes\scene07.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Objects\spot_light.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Middleware\imgui-master\examples\imgui_impl_sdl.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Middleware\imgui-master\examples\imgui_impl_opengl3.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Middleware\imgui-master\imgui.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Middleware\imgui-master\imgui_draw.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Middleware\imgui-master\imgui_widgets.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Renderer\ui.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -200,6 +221,12 @@
     <ClInclude Include="Source\Scenes\scene07.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Objects\spot_light.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\ui.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Shaders\basic.fs">
@@ -254,6 +281,9 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="..\Resources\Shaders\phong_fog.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\phong_spotlight.fs">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

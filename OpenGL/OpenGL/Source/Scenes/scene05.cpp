@@ -188,18 +188,11 @@ void Scene05::Update()
 	for (Model* model : models)
 	{
 
-		// update light
-
 		model->m_shader.Use();
 		model->m_shader.SetUniform("light.position", lightPosition);
 		model->transform.rotation = model->transform.rotation * glm::angleAxis(glm::radians(45.0f * dt), glm::vec3(0.0f, 1.0f, 0.0f));
 		model->transform.Update();
 
-
-		/*m_uvOffset.y = m_uvOffset.y + (0.1f * dt);
-		m_uvOffset.x = m_uvOffset.x + (0.1f * dt);
-
-		model->m_shader.SetUniform("uv_offset", m_uvOffset);*/
 	}
 
 }

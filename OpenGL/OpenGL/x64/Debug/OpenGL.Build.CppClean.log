@@ -1,32 +1,5 @@
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\vc141.pdb
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\vc141.idb
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\glad.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\scene01.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\vertex_arrays.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\vertex_array.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\shader.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\renderer.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\material.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\torus.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\sphere.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\point_light.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\plane.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\model.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\light.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\directional_light.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\cube.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\timer.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\input.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\file_system.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\engine.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\main.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\scene04.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\scene03.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\scene02.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\opengl\x64\debug\camera.obj
 c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\vc141.pdb
 c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\vc141.idb
-c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\glad.obj
 c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\scene01.obj
 c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\vertex_arrays.obj
 c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\vertex_array.obj
@@ -50,11 +23,19 @@ c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\main.
 c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\scene04.obj
 c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\scene03.obj
 c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\scene02.obj
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\x64\debug\opengl.exe
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\x64\debug\opengl.ilk
-c:\users\rmaple\onedrive - neumont college of computer science\dev\gat350\computergraphics\opengl - class\x64\debug\opengl.pdb
-c:\users\craines\documents\gat350\computergraphics\opengl\x64\debug\opengl.ilk
+c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\scene05.obj
+c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\scene06.obj
+c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\scene07.obj
+c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\spot_light.obj
+c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\glad.obj
+c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\imgui.obj
+c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\imgui_impl_sdl.obj
+c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\imgui_draw.obj
+c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\imgui_impl_opengl3.obj
+c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\imgui_widgets.obj
+c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\ui.obj
 c:\users\craines\documents\gat350\computergraphics\opengl\x64\debug\opengl.exe
+c:\users\craines\documents\gat350\computergraphics\opengl\x64\debug\opengl.ilk
 c:\users\craines\documents\gat350\computergraphics\opengl\x64\debug\opengl.pdb
 c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\opengl.tlog\cl.command.1.tlog
 c:\users\craines\documents\gat350\computergraphics\opengl\opengl\x64\debug\opengl.tlog\cl.read.1.tlog

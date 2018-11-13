@@ -3,8 +3,6 @@
 
 bool Input::Initialize()
 {
-	SDL_SetRelativeMouseMode(SDL_TRUE);
-
 	SDL_GetKeyboardState(&m_numKeys);
 	m_keystate = new Uint8[m_numKeys];
 	m_prevKeystate = new Uint8[m_numKeys];
@@ -51,7 +49,7 @@ void Input::Update()
 	m_prevMouseButtonstate = m_mouseButtonstate;
 	m_prevMousePosition = m_mousePosition;
 	SDL_Point axis;
-	m_mouseButtonstate = SDL_GetRelativeMouseState(&axis.x, &axis.y);
+	m_mouseButtonstate = SDL_GetMouseState(&axis.x, &axis.y);
 	m_mousePosition = glm::vec2(axis.x, axis.y);
 
 	// controller
@@ -177,7 +175,7 @@ float Input::GetAxisRelative(int id, eDevice device, size_t index)
 		break;
 
 	case eDevice::MOUSE:
-		axis = m_mousePosition[id];// -m_prevMousePosition[id];
+		axis = m_mousePosition[id] - m_prevMousePosition[id];
 		break;
 
 	case eDevice::CONTROLLER:

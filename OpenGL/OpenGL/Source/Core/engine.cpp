@@ -18,6 +18,7 @@ bool Engine::Initialize()
 	m_systems.push_back(new Input(this));
 	m_systems.push_back(new FileSystem(this));
 	m_systems.push_back(new Renderer(this));
+	m_systems.push_back(new UI(this));
 
 	for (System* system : m_systems)
 	{
@@ -41,17 +42,16 @@ void Engine::Shutdown()
 
 void Engine::Update()
 {
-	SDL_Event event;
-	SDL_PollEvent(&event);
+	SDL_PollEvent(&m_event);
 
-	switch (event.type)
+	switch (m_event.type)
 	{
 	case SDL_QUIT:
 		m_quit = true;
 		break;
 
 	case SDL_KEYDOWN:
-		if (event.key.keysym.sym == SDLK_ESCAPE)
+		if (m_event.key.keysym.sym == SDLK_ESCAPE)
 		{
 			m_quit = true;
 		}

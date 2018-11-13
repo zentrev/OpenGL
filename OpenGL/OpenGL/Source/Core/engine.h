@@ -1,5 +1,9 @@
 #pragma once
 
+#include "imgui.h"
+#include "imgui_impl_sdl.h"
+#include "imgui_impl_opengl3.h"
+
 #include <SDL.h>
 #include <glad\glad.h>
 
@@ -20,6 +24,7 @@
 #include "file_system.h"
 #include "renderer/renderer.h"
 #include "math/transform.h"
+
 
 class Engine
 {
@@ -45,8 +50,11 @@ public:
 	}
 
 	bool ForceQuit() { return m_quit; }
+	SDL_Event& GetEvent() { return m_event; }
 
 private:
 	std::vector<class System*> m_systems;
 	bool m_quit = false;
+	SDL_Event m_event;
+
 };
