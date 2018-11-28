@@ -117,6 +117,11 @@ void Shader::Link()
 void Shader::Use()
 {
 	glUseProgram(m_programID);
+
+	for (SubroutineInfo info : m_subroutines)
+	{
+		glUniformSubroutinesuiv(info.shaderType, 1, &info.index);
+	}
 }
 
 void Shader::SetUniform(const std::string& name, float x, float y, float z)
@@ -194,3 +199,12 @@ GLint Shader::GetUniform(const std::string& name)
 	return m_uniforms[name];
 }
 
+void Shader::AddSubroutine(GLenum shaderType, const std::string& subroutine)
+{
+	Use();
+
+	GLuint subroutineIndex = glGetSubroutineIndex(m_programID, shaderType, subroutine.c_str());
+	SubroutineInfo subroutineInfo = { shaderType, subroutineIndex };
+
+	m_subroutines.push_back(subroutineInfo);
+}

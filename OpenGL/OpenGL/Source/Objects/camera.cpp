@@ -1,6 +1,7 @@
 #include "camera.h"
 #include "core/scene.h"
 #include "core/engine.h"
+#include "Core/timer.h"
 
 
 void Camera::Initialize()
@@ -27,6 +28,17 @@ void Camera::Update()
 	glm::vec3 translate(0.0f);
 	glm::vec3 rotate(0.0f);
 	
+	switch (type)
+	{
+	case LOOK_AT:
+		UpdateLookAt(translate, rotate);
+		break;
+	case EDITOR:
+		UpdateEditor(translate, rotate);
+		break;
+	}
+
+
 	// update rotation
 	if (scene->m_engine->Get<Input>()->GetActionButton("right_action"))
 	{
@@ -38,6 +50,30 @@ void Camera::Update()
 		transform.rotation = glm::normalize(transform.rotation);
 	}
 	
+	
+}
+
+void Camera::SetView(const glm::vec3& position, const glm::vec3& target, const glm::vec3& up)
+{
+	transform.matrix = glm::lookAt(position, target, glm::vec3(0.0f, 1.0f, 0.0f));
+	transform.rotation = glm::quat_cast(transform.matrix);
+	transform.translation = position;
+}
+
+void Camera::SetProjection(float fov, float nearClip, float farClip)
+{
+	projection = glm::perspective(glm::radians(fov), (float)scene->m_engine->Get<Renderer>()->GetWidth() / (float)scene->m_engine->Get<Renderer>()->GetHeight(), nearClip, farClip);
+}
+
+void Camera::UpdateLookAt(glm::vec3 & translate, glm::vec3 & rotate)
+{
+	//Notin, we don't move
+}
+
+void Camera::UpdateEditor(glm::vec3 & translate, glm::vec3 & rotate)
+{
+	float dt = scene->m_engine->Get<Timer>()->DeltaTime();
+
 	// update translate
 	if (scene->m_engine->Get<Input>()->GetActionButton("camera_left") == Input::eButtonState::HELD) translate.x -= m_rate;
 	if (scene->m_engine->Get<Input>()->GetActionButton("camera_right") == Input::eButtonState::HELD) translate.x += m_rate;
@@ -53,18 +89,6 @@ void Camera::Update()
 	glm::mat4 mxr = glm::mat4_cast(transform.rotation);
 
 	transform.matrix = mxr * mxt;
-}
-
-void Camera::SetView(const glm::vec3& position, const glm::vec3& target, const glm::vec3& up)
-{
-	transform.matrix = glm::lookAt(position, target, glm::vec3(0.0f, 1.0f, 0.0f));
-	transform.rotation = glm::quat_cast(transform.matrix);
-	transform.translation = position;
-}
-
-void Camera::SetProjection(float fov, float nearClip, float farClip)
-{
-	projection = glm::perspective(glm::radians(fov), (float)scene->m_engine->Get<Renderer>()->GetWidth() / (float)scene->m_engine->Get<Renderer>()->GetHeight(), nearClip, farClip);
 }
 
 //void Camera::Edit()

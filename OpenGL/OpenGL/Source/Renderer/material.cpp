@@ -28,6 +28,28 @@ bool Material::AddTexture(const std::string& filename, GLuint activeTexture)
 	return (textureID != 0);
 }
 
+
+bool Material::AddTextureCube(const std::string& filename, const std::vector<std::string>& suffixes, const std::string& extension, GLuint activeTexture)
+{
+	glActiveTexture(activeTexture);
+
+	GLuint textureID = LoadTextureCube(filename, suffixes, extension);
+	if (textureID != 0)
+	{
+		TextureInfo textureInfo = { GL_TEXTURE_CUBE_MAP, activeTexture, textureID };
+		m_textures.push_back(textureInfo);
+	}
+
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+	return (textureID != 0);
+}
+
+
 void Material::SetTextures()
 {
 	for (TextureInfo textureInfo : m_textures)
@@ -69,6 +91,60 @@ GLuint Material::LoadTexture(const std::string& filename)
 
 		stbi_image_free(image);
 	}
+	return textureID;
+}
+
+
+GLuint Material::LoadTextureCube(const std::string& basename, const std::vector<std::string>& suffixes, const std::string& extension)
+{
+	GLuint targets[] =
+	{
+		GL_TEXTURE_CUBE_MAP_POSITIVE_X,
+		GL_TEXTURE_CUBE_MAP_NEGATIVE_X,
+		GL_TEXTURE_CUBE_MAP_POSITIVE_Y,
+		GL_TEXTURE_CUBE_MAP_NEGATIVE_Y,
+		GL_TEXTURE_CUBE_MAP_POSITIVE_Z,
+		GL_TEXTURE_CUBE_MAP_NEGATIVE_Z
+	};
+
+	GLuint textureID = 0;
+
+	glGenTextures(1, &textureID);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
+
+	for (int i = 0; i < 6; i++)
+	{
+		int width;
+		int height;
+		int n;
+
+		std::string filename = basename + suffixes[i] + "." + extension;
+		SDL_Log("Loading Texture <%s>", filename.c_str());
+
+		unsigned char* image = stbi_load(filename.c_str(), &width, &height, &n, 0);
+		assert(image);
+
+		GLenum storageFormat = (n == 4) ? GL_RGBA8 : GL_RGB8;
+		GLenum imageFormat = (n == 4) ? GL_RGBA : GL_RGB;
+
+		glTexStorage2D(GL_TEXTURE_CUBE_MAP, 1, storageFormat, width, height);
+		glTexSubImage2D(targets[i], 0, 0, 0, width, height, imageFormat, GL_UNSIGNED_BYTE, image);
+
+		stbi_image_free(image);
+	}
 
 	return textureID;
 }
+
+GLuint Material::CreateTexture(GLuint width, GLuint height)
+{
+	GLuint textureID;
+	glGenTextures(1, &textureID);
+	glBindTexture(GL_TEXTURE_2D, textureID);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	return textureID;
+}
+

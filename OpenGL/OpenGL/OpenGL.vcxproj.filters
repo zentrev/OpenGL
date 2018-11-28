@@ -103,6 +103,12 @@
     <ClCompile Include="Source\Renderer\ui.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Scenes\scene08.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scenes\scene09.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -227,6 +233,12 @@
     <ClInclude Include="Source\Renderer\ui.h">
       <Filter>Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Scenes\scene08.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scenes\scene09.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Shaders\basic.fs">
@@ -284,6 +296,12 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="..\Resources\Shaders\phong_spotlight.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\cubemap.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\cubemap.vs">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

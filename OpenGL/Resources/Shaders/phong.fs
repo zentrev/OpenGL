@@ -27,7 +27,16 @@ out vec4 color;
 
 void main()
 {
-	vec3 position_to_light = normalize(vec3(light.position) - fragment_position);
+    
+    vec3 position_to_light;
+    if (light.position.w == 0.0)
+    {
+        position_to_light = normalize(vec3(light.position));
+    }
+    else
+    {
+        position_to_light = normalize(vec3(light.position) - fragment_position);
+    }
 
 	// ambient
 	vec3 ambient = material.ambient;
@@ -46,6 +55,7 @@ void main()
 		specular_intensity = pow(specular_intensity, material.shininess);
 		specular = light.specular * material.specular * specular_intensity;
 	}
+
 
 	color = vec4(ambient + diffuse, 1.0) * texture(textureSample, fragment_uv) + vec4(specular, 1.0);
 }

@@ -80,13 +80,13 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\Middleware\glad\include;$(SolutionDir)..\Middleware\SDL2-2.0.8\include;$(SolutionDir)..\Middleware\glm;$(SolutionDir)..\Middleware;$(ProjectDir)\Source;$(SolutionDir)..\Middleware\imgui-master;$(SolutionDir)..\Middleware\imgui-master\examples;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Middleware\glad\include;$(SolutionDir)..\Middleware\SDL2-2.0.8\include;$(SolutionDir)..\Middleware\glm;$(SolutionDir)..\Middleware;$(ProjectDir)\Source;$(SolutionDir)..\Middleware\imgui-master;$(SolutionDir)..\Middleware\imgui-master\examples;$(SolutionDir)..\Middleware\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>IMGUI_IMPL_OPENGL_LOADER_GLAD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\Middleware\SDL2-2.0.8\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sdl2.lib;sdl2main.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\Middleware\SDL2-2.0.8\lib\$(PlatformTarget);$(SolutionDir)..\Middleware\assimp\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sdl2.lib;sdl2main.lib;opengl32.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/debug:fastlink %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -97,13 +97,13 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\Middleware\glad\include;$(SolutionDir)..\Middleware\SDL2-2.0.8\include;$(SolutionDir)..\Middleware\glm;$(SolutionDir)..\Middleware;$(ProjectDir)\Source;$(SolutionDir)..\Middleware\imgui-master;$(SolutionDir)..\Middleware\imgui-master\examples;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Middleware\glad\include;$(SolutionDir)..\Middleware\SDL2-2.0.8\include;$(SolutionDir)..\Middleware\glm;$(SolutionDir)..\Middleware;$(ProjectDir)\Source;$(SolutionDir)..\Middleware\imgui-master;$(SolutionDir)..\Middleware\imgui-master\examples;$(SolutionDir)..\Middleware\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>IMGUI_IMPL_OPENGL_LOADER_GLAD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\Middleware\SDL2-2.0.8\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sdl2.lib;sdl2main.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\Middleware\SDL2-2.0.8\lib\$(PlatformTarget);$(SolutionDir)..\Middleware\assimp\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sdl2.lib;sdl2main.lib;opengl32.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/debug:fastlink %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -179,6 +179,8 @@
     <ClCompile Include="Source\Scenes\scene05.cpp" />
     <ClCompile Include="Source\Scenes\scene06.cpp" />
     <ClCompile Include="Source\Scenes\scene07.cpp" />
+    <ClCompile Include="Source\Scenes\scene08.cpp" />
+    <ClCompile Include="Source\Scenes\scene09.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\engine.h" />
@@ -213,6 +215,8 @@
     <ClInclude Include="Source\Scenes\scene05.h" />
     <ClInclude Include="Source\Scenes\scene06.h" />
     <ClInclude Include="Source\Scenes\scene07.h" />
+    <ClInclude Include="Source\Scenes\scene08.h" />
+    <ClInclude Include="Source\Scenes\scene09.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Shaders\basic.fs" />
@@ -221,6 +225,8 @@
     <None Include="..\Resources\Shaders\basic_color.vs" />
     <None Include="..\Resources\Shaders\basic_uv.fs" />
     <None Include="..\Resources\Shaders\basic_uv.vs" />
+    <None Include="..\Resources\Shaders\cubemap.fs" />
+    <None Include="..\Resources\Shaders\cubemap.vs" />
     <None Include="..\Resources\Shaders\gouraud.fs" />
     <None Include="..\Resources\Shaders\gouraud.vs" />
     <None Include="..\Resources\Shaders\gouraud_ads.vs" />

@@ -10,50 +10,6 @@
 #include "Math/transform.h"
 
 
-//static float cube_vertices[] = {
-//	// Front
-//	-1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f, 0.0f,
-//	 1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f, 0.0f,
-//	 1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f, 1.0f,
-//	-1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f, 1.0f,
-//	// Right
-//	 1.0f, -1.0f,  1.0f,  1.0f,  0.0f,  0.0f, 0.0f, 0.0f,
-//	 1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f, 1.0f, 0.0f,
-//	 1.0f,  1.0f, -1.0f,  1.0f,  0.0f,  0.0f, 1.0f, 1.0f,
-//	 1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f, 0.0f, 1.0f,
-//	 // Back
-//	 -1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.0f, 0.0f,
-//	 -1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 1.0f, 0.0f,
-//	  1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 1.0f, 1.0f,
-//	  1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.0f, 1.0f,
-//	  // Left
-//	  -1.0f, -1.0f,  1.0f, -1.0f,  0.0f,  0.0f, 0.0f, 0.0f,
-//	  -1.0f,  1.0f,  1.0f, -1.0f,  0.0f,  0.0f, 1.0f, 0.0f,
-//	  -1.0f,  1.0f, -1.0f, -1.0f,  0.0f,  0.0f, 1.0f, 1.0f,
-//	  -1.0f, -1.0f, -1.0f, -1.0f,  0.0f,  0.0f, 0.0f, 1.0f,
-//	  // Bottom
-//	  -1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f, 0.0f, 0.0f,
-//	  -1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f, 1.0f, 0.0f,
-//	   1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f, 1.0f, 1.0f,
-//	   1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f, 0.0f, 1.0f,
-//	   // Top
-//	   -1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f, 0.0f, 0.0f,
-//		1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f, 1.0f, 0.0f,
-//		1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f, 1.0f, 1.0f,
-//	   -1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f, 0.0f, 1.0f
-//};
-//
-//static GLushort cube_indices[] =
-//{
-//	 0,  1,  2,  0,  2,  3,
-//	 4,  5,  6,  4,  6,  7,
-//	 8,  9, 10,  8, 10, 11,
-//	12, 13, 14, 12, 14, 15,
-//	16, 17, 18, 16, 18, 19,
-//	20, 21, 22, 20, 22, 23
-//};
-
-
 bool Scene06::Initialize()
 {
 	m_engine->Get<Input>()->AddAction("point", SDL_SCANCODE_1, Input::eDevice::KEYBOARD);
@@ -63,11 +19,15 @@ bool Scene06::Initialize()
 	camera->Initialize();
 	camera->SetView(glm::vec3(0.0f, 0.0f, 20.0f), glm::vec3(0.0f));
 
-	PointLight * light = this->CreateObject<PointLight>();
+	Light * light = this->CreateObject<PointLight>();
 	light->transform.translation = glm::vec3(10.0f, 10.0f, 10.0f);
 	light->diffuse = glm::vec3(1.0f, 1.0f, 1.0f);
 	light->specular = glm::vec3(1.0f);
 	
+	light = this->CreateObject<DirectionalLight>();
+	light->transform.translation = glm::vec3(10.0f, 10.0f, 10.0f);
+	light->diffuse = glm::vec3(1.0f, 1.0f, 1.0f);
+	light->specular = glm::vec3(1.0f);
 	//Model 1
 	Model* model = this->CreateObject<Sphere>("Model1");
 	((Sphere*)(model))->Initialize(1.0f, 20, 20);

@@ -28,11 +28,20 @@ public:
 	void SetUniform(const std::string& name, bool vbool);
 	void SetUniform(const std::string& name, GLuint vuint);
 
+	void AddSubroutine(GLenum shaderType, const std::string& subroutine);
+
 private:
 	GLint GetUniform(const std::string& name);
 		
 private:
+	struct SubroutineInfo
+	{
+		GLenum shaderType;
+		GLuint index;
+	};
+
 	GLuint m_programID = 0;
 	bool m_isLinked = false;
 	std::map<std::string, GLuint> m_uniforms;
+	std::vector<SubroutineInfo> m_subroutines;
 };
