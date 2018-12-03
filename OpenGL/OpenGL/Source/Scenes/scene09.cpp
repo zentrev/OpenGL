@@ -17,7 +17,7 @@ bool Scene09::Initialize()
 	//Cameras
 	Camera * camera = this->CreateObject<Camera>("camera_edditor"); 
 	camera->Initialize();
-	camera->SetView(glm::vec3(0.0f, 0.0f, 5.0f), glm::vec3(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	camera->SetView(glm::vec3(0.0f, 0.0f, 6.0f), glm::vec3(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
 	camera = this->CreateObject<Camera>("camera_rtt");
 	camera->type = Camera::eType::LOOK_AT;

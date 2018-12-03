@@ -13,7 +13,6 @@ class Camera : public Object
 	};
 
 public:
-	eType type = eType::EDITOR;
 
 	Camera(Scene* scene, const std::string& name = "") : Object(scene, name) {}
 
@@ -30,6 +29,7 @@ public:
 	//void Edit() override;
 
 public:
+	eType type = eType::EDITOR;
 	glm::mat4 projection;
 	float m_rate = 5.0f;
 };

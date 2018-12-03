@@ -109,6 +109,9 @@
     <ClCompile Include="Source\Scenes\scene09.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Scenes\scene10.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -239,6 +242,9 @@
     <ClInclude Include="Source\Scenes\scene09.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Scenes\scene10.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Shaders\basic.fs">
@@ -302,6 +308,12 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="..\Resources\Shaders\cubemap.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\phong_normal.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\phong_multi_light.fs">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
