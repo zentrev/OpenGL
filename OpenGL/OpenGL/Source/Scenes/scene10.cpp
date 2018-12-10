@@ -21,9 +21,9 @@ bool Scene10::Initialize()
 	light->transform.translation = glm::vec3(1.0f, 0.0f, 2.0f);
 
 	Model* model = this->CreateObject<Model>("model1");
-	model->Import(m_engine->Get<FileSystem>()->GetPathname() + "meshes\\quad.obj");
+	model->Import(m_engine->Get<FileSystem>()->GetPathname() + "meshes\\ogre.obj");
 
-	model->m_shader.CompileShader(m_engine->Get<FileSystem>()->GetPathname() + "shaders\\phong.vs", GL_VERTEX_SHADER);
+	model->m_shader.CompileShader(m_engine->Get<FileSystem>()->GetPathname() + "shaders\\phong_normal.vs", GL_VERTEX_SHADER);
 	model->m_shader.CompileShader(m_engine->Get<FileSystem>()->GetPathname() + "shaders\\phong_normal.fs", GL_FRAGMENT_SHADER);
 
 	model->m_shader.Link();
@@ -34,8 +34,8 @@ bool Scene10::Initialize()
 	model->m_material.specular = glm::vec3(1.0f);
 	model->m_material.shininess = 100.0f;
 
-	model->m_material.AddTexture(m_engine->Get<FileSystem>()->GetPathname() + "textures\\rocks.jpg", GL_TEXTURE0);
-	model->m_material.AddTexture(m_engine->Get<FileSystem>()->GetPathname() + "textures\\rocks_normal.jpg", GL_TEXTURE1);
+	model->m_material.AddTexture(m_engine->Get<FileSystem>()->GetPathname() + "textures\\ogre_diffuse.bmp", GL_TEXTURE0);
+	model->m_material.AddTexture(m_engine->Get<FileSystem>()->GetPathname() + "textures\\ogre_normal.bmp", GL_TEXTURE1);
 
 	model->m_shader.SetUniform("material.ambient", model->m_material.ambient);
 	model->m_shader.SetUniform("material.diffuse", model->m_material.diffuse);
@@ -58,6 +58,10 @@ void Scene10::Update()
 	PointLight* light = this->GetObject<PointLight>("point_light");
 	light->transform.translation = light->transform.translation * glm::quat(glm::vec3(0.0f, 0.0f, glm::radians(45.0f * dt)));
 
+	Model* model = this->GetObjectA<Model>("model1");
+	m_time = m_time + dt * .25f;
+	model->transform.rotation = glm::quat(glm::vec3(0.0f, glm::radians(glm::sin(m_time) * 25.0f), 0.0f));
+
 	std::vector<Object*> objects = this->GetObjects<Object>();
 	for (Object* object : objects)
 	{
@@ -73,6 +77,7 @@ void Scene10::Update()
 		model->m_shader.Use();
 
 		model->m_shader.SetUniform("light.position", lightPosition);
+		model->m_shader.SetUniform("light_position", lightPosition);
 
 		model->m_shader.SetUniform("light.diffuse", light->diffuse);
 		model->m_shader.SetUniform("light.specular", light->specular);

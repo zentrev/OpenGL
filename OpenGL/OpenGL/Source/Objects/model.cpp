@@ -40,7 +40,7 @@ void Model::Edit()
 bool Model::Import(const std::string& filename)
 {
 	Assimp::Importer importer;
-	const aiScene* scene = importer.ReadFile(filename, aiProcess_Triangulate | aiProcess_GenNormals);
+	const aiScene* scene = importer.ReadFile(filename, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_CalcTangentSpace);
 	assert(scene);
 	ProcessNode(scene->mRootNode, scene);
 
@@ -66,6 +66,7 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 	std::vector<glm::vec3> positions;
 	std::vector<glm::vec3> normals;
 	std::vector<glm::vec2> texcoords;
+	std::vector<glm::vec3> tangents;
 
 	for (size_t i = 0; i < mesh->mNumVertices; i++)
 	{
@@ -83,6 +84,12 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 
 		if (mesh->mTextureCoords[0])
 		{
+			glm::vec3 tangent;
+			tangent.x = mesh->mTangents[i].x;
+			tangent.y = mesh->mTangents[i].y;
+			tangent.z = mesh->mTangents[i].z;
+			tangents.push_back(tangent);
+
 			glm::vec2 texcoord;
 			texcoord.x = mesh->mTextureCoords[0][i].x;
 			texcoord.y = mesh->mTextureCoords[0][i].y;
@@ -103,6 +110,12 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 	{
 		m_vertexArrays.CreateBuffer(VertexArrays::eVertexType::TEXCOORD, sizeof(glm::vec2), (GLsizei)texcoords.size(), &texcoords[0]);
 		m_vertexArrays.SetAttribute(2, 2, sizeof(glm::vec2), 0);
+	}
+
+	if (tangents.size() > 0)
+	{
+		m_vertexArrays.CreateBuffer(VertexArrays::eVertexType::TANGENT, sizeof(glm::vec3), (GLsizei)tangents.size(), &tangents[0]);
+		m_vertexArrays.SetAttribute(3, 3, sizeof(glm::vec3), 0);
 	}
 
 	std::vector<GLuint> indices;

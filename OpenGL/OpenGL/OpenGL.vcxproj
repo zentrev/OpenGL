@@ -182,6 +182,7 @@
     <ClCompile Include="Source\Scenes\scene08.cpp" />
     <ClCompile Include="Source\Scenes\scene09.cpp" />
     <ClCompile Include="Source\Scenes\scene10.cpp" />
+    <ClCompile Include="Source\Scenes\scene11.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\engine.h" />
@@ -219,6 +220,7 @@
     <ClInclude Include="Source\Scenes\scene08.h" />
     <ClInclude Include="Source\Scenes\scene09.h" />
     <ClInclude Include="Source\Scenes\scene10.h" />
+    <ClInclude Include="Source\Scenes\scene11.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Shaders\basic.fs" />
@@ -239,6 +241,11 @@
     <None Include="..\Resources\Shaders\phong_multi_light.fs" />
     <None Include="..\Resources\Shaders\phong_multi_texture.fs" />
     <None Include="..\Resources\Shaders\phong_normal.fs" />
+    <None Include="..\Resources\Shaders\phong_normal.vs" />
+    <None Include="..\Resources\Shaders\phong_shader.fs" />
+    <None Include="..\Resources\Shaders\phong_shader.vs" />
+    <None Include="..\Resources\Shaders\phong_shader_debug.fs" />
+    <None Include="..\Resources\Shaders\phong_shader_debug.vs" />
     <None Include="..\Resources\Shaders\phong_specular_map.fs" />
     <None Include="..\Resources\Shaders\phong_spotlight.fs" />
     <None Include="..\Resources\Shaders\phong_uv.vs" />

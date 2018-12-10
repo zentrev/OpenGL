@@ -17,6 +17,8 @@ public:
 private:
 	int m_lightIndex = 0;
 	GLuint m_framebuffer;
+
+	float m_time = 0.0f;
 	
 };
 

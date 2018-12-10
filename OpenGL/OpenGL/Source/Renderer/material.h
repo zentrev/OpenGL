@@ -18,6 +18,10 @@ public:
 	static GLuint LoadTextureCube(const std::string& basename, const std::vector<std::string>& suffixes, const std::string& extension);
 	static GLuint CreateTexture(GLuint width, GLuint height);
 
+	static GLuint CreateDepthTexture(GLuint width, GLuint height);
+
+	static GLuint CreateDepthbuffer(GLuint texture, GLuint width, GLuint height);
+
 public:
 	glm::vec3 ambient = glm::vec3(1.0f);
 	glm::vec3 diffuse = glm::vec3(1.0f);

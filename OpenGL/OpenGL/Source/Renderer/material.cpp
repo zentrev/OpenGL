@@ -148,3 +148,39 @@ GLuint Material::CreateTexture(GLuint width, GLuint height)
 	return textureID;
 }
 
+GLuint Material::CreateDepthTexture(GLuint width, GLuint height)
+{
+	GLuint depthTexture;
+
+	glGenTextures(1, &depthTexture);
+	glBindTexture(GL_TEXTURE_2D, depthTexture);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, width, height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+
+	return depthTexture;
+}
+
+GLuint Material::CreateDepthbuffer(GLuint texture, GLuint width, GLuint height)
+{
+	GLuint fboHandle;
+
+	glGenFramebuffers(1, &fboHandle);
+	glBindFramebuffer(GL_FRAMEBUFFER, fboHandle);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, texture, 0);
+
+	glDrawBuffer(GL_NONE);
+
+	GLenum result = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+	assert(result == GL_FRAMEBUFFER_COMPLETE);
+
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+	return fboHandle;
+}
+
+
+
